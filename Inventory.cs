@@ -123,4 +123,21 @@ public class Inventory
         products.Remove(product);
         return true;
     }
+
+    public bool searchProduct()
+    {
+        Console.WriteLine("Enter the product name:");
+        string? input=Console.ReadLine();
+        if(input==null){
+            Console.WriteLine("Enter a valid name");
+            return false;
+        }
+        Product? product=checkIfExist(input);
+        if(product==null){
+            Console.WriteLine("No product exit with this name");
+            return false;
+        }
+        Console.WriteLine($"Name: {product.name}, Price: {product.price}, Quantity: {product.quantity}");
+        return true;
+    }
 }
