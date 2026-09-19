@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 public class Inventory
 {
     List<Product> products=new List<Product>();
@@ -36,6 +38,20 @@ public class Inventory
 
         Product p=new Product(){name=name,price=price,quantity=quantity};
         products.Add(p);
+        return true;
+    }
+
+    public bool viewProducts()
+    {
+        if (products.Count == 0){
+            Console.WriteLine("There is no products currently in our inventory.");
+            return false;
+        }
+        for(int i=0;i<products.Count;i++)
+        {
+            Product product=products[i];
+            Console.WriteLine($"{i+1} - Name: {product.name}, Price: {product.price}, Quantity: {product.quantity}");
+        }
         return true;
     }
 }
