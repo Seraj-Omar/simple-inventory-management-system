@@ -1,6 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using System.Transactions;
-
 public class Inventory
 {
     List<Product> products=new List<Product>();
